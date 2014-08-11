@@ -11,5 +11,6 @@
 
     <!-- Standard Background -->
     <color name="backdrop_light">#EDEDED</color>
+    <color name="card_interior_dark">#EFEFEF</color>
 
 </resources>

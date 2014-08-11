@@ -1,19 +1,20 @@
 package org.mdssf.materdolorosa;
 
 import android.app.Activity;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.widget.DrawerLayout;
 
 import org.mdssf.materdolorosa.fragment.NavigationDrawerFragment;
+import org.mdssf.materdolorosa.fragment.ParishContactFragment;
 
 
 public class HomeActivity extends ActionBarActivity
@@ -36,7 +37,8 @@ public class HomeActivity extends ActionBarActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
+        refreshActionBarTitle();
+
 
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
@@ -47,10 +49,26 @@ public class HomeActivity extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         // update the main content by replacing fragments
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.container, PlaceholderFragment.newInstance(position + 1))
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment item;
+        switch (position) {
+            case R.id.btn_section1:
+                item = PlaceholderFragment.newInstance(position + 1);
+                break;
+            case R.id.btn_section2:
+                item = PlaceholderFragment.newInstance(position + 1);
+                break;
+            case R.id.btn_section3:
+                item = new ParishContactFragment();
+                break;
+            default:
+                item = PlaceholderFragment.newInstance(position + 1);
+        }
+        fm.beginTransaction()
+                .replace(R.id.container, item)
                 .commit();
+        // Remember the last title.
+        refreshActionBarTitle();
     }
 
     public void onSectionAttached(int number) {
@@ -100,6 +118,14 @@ public class HomeActivity extends ActionBarActivity
     }
 
     /**
+     * Use the currently selected navigation item as the ActionBar title.
+     */
+    private void refreshActionBarTitle() {
+        mTitle = mNavigationDrawerFragment == null ?
+                getTitle() : mNavigationDrawerFragment.getCurrentItemTitle();
+    }
+
+    /**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
@@ -108,6 +134,9 @@ public class HomeActivity extends ActionBarActivity
          * fragment.
          */
         private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
 
         /**
          * Returns a new instance of this fragment for the given section
@@ -119,9 +148,6 @@ public class HomeActivity extends ActionBarActivity
             args.putInt(ARG_SECTION_NUMBER, sectionNumber);
             fragment.setArguments(args);
             return fragment;
-        }
-
-        public PlaceholderFragment() {
         }
 
         @Override

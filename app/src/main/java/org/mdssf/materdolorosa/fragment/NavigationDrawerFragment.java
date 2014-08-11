@@ -2,18 +2,18 @@ package org.mdssf.materdolorosa.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Typeface;
-import android.net.Uri;
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -151,7 +151,7 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                 if (!isAdded()) {
                     return;
                 }
-                getActionBarActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+                getActionBarActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
 
             @Override
@@ -170,7 +170,7 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
                     sp.edit().putBoolean(PREF_USER_LEARNED_DRAWER, true).apply();
                 }
 
-                getActionBarActivity().invalidateOptionsMenu(); // calls onPrepareOptionsMenu()
+                getActionBarActivity().supportInvalidateOptionsMenu(); // calls onPrepareOptionsMenu()
             }
         };
 
@@ -301,6 +301,10 @@ public class NavigationDrawerFragment extends Fragment implements View.OnClickLi
 
     private ActionBar getActionBar() {
         return getActionBarActivity().getSupportActionBar();
+    }
+
+    public CharSequence getCurrentItemTitle() {
+        return mCurrentTitle;
     }
 
     /**

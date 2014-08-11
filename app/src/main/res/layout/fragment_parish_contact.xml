@@ -2,11 +2,110 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backdrop_light"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
     tools:context="org.mdssf.materdolorosa.fragment.ParishContactFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <ListView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:background="@drawable/card_background"
+        android:orientation="vertical"
+        android:paddingTop="@dimen/activity_vertical_margin">
+
+        <TextView
+            android:id="@+id/card_parish_office_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="0dp"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="0dp"
+            android:paddingStart="@dimen/item_padding"
+            android:text="Parish Office"
+            android:textColor="@android:color/secondary_text_light"
+            android:textSize="26sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingEnd="0dp"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="0dp"
+            android:paddingStart="@dimen/item_padding"
+            android:text="307 Willow Avenue, S San Francisco, CA 94080"
+            android:textColor="@android:color/tertiary_text_light"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/card_parish_currently_open"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingEnd="0dp"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="0dp"
+            android:paddingStart="@dimen/item_padding"
+            android:paddingTop="@dimen/item_padding"
+            android:text="Currently open"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/card_parish_office_hours"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:paddingEnd="0dp"
+            android:paddingLeft="@dimen/item_padding"
+            android:paddingRight="0dp"
+            android:paddingStart="@dimen/item_padding"
+            android:text="Hours: 9:00-12:00, 1:00-5:00 (M-F)"
+            android:textColor="@android:color/tertiary_text_light"
+            android:textSize="16sp" />
+
+        <include
+            layout="@layout/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/item_padding"
+            android:text="Get directions"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <include
+            layout="@layout/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/item_padding"
+            android:text="Call"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <include
+            layout="@layout/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <Button
+            style="?android:borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:padding="@dimen/item_padding"
+            android:text="Email"
+            android:textColor="@android:color/holo_blue_dark" />
+    </LinearLayout>
 
 </LinearLayout>

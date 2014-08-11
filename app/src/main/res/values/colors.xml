@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Theme Colors -->
+    <color name="primary">#5677fc</color>
+    <color name="primary_dark">#3b50ce</color>
+    <color name="primary_light">#afbfff</color>
+    <color name="accent">#ffd740</color>
+
+    <!-- Navigation Drawer -->
+    <color name="nav_bar_item_text">#2a36b1</color>
+
+    <!-- Standard Background -->
+    <color name="backdrop_light">#EDEDED</color>
+
+</resources>

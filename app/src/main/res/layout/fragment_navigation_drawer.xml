@@ -1,0 +1,54 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backdrop_light"
+    tools:context=".NavigationDrawerFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/nav_sections"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:checkedButton="@+id/btn_section1">
+
+            <RadioButton
+                android:id="@id/btn_section1"
+                style="@style/NavDrawerSection"
+                android:text="@string/title_section1" />
+
+            <RadioButton
+                android:id="@+id/btn_section2"
+                style="@style/NavDrawerSection"
+                android:text="@string/title_section2" />
+
+            <RadioButton
+                android:id="@+id/btn_section3"
+                style="@style/NavDrawerSection"
+                android:text="@string/title_section3" />
+
+        </RadioGroup>
+
+        <include
+            layout="@layout/item_divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <Button
+            android:id="@+id/btn_about"
+            style="@style/NavDrawerButton"
+            android:text="@string/menu_about_app" />
+
+        <Button
+            android:id="@+id/btn_send_feedback"
+            style="@style/NavDrawerButton"
+            android:text="@string/menu_report_bug" />
+
+
+    </LinearLayout>
+</ScrollView>

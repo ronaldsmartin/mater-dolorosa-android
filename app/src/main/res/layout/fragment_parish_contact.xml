@@ -1,111 +1,400 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/backdrop_light"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
     tools:context="org.mdssf.materdolorosa.fragment.ParishContactFragment">
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/card_background"
         android:orientation="vertical"
-        android:paddingTop="@dimen/activity_vertical_margin">
+        android:padding="@dimen/activity_vertical_margin" >
 
-        <TextView
-            android:id="@+id/card_parish_office_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="0dp"
-            android:paddingLeft="@dimen/item_padding"
-            android:paddingRight="0dp"
-            android:paddingStart="@dimen/item_padding"
-            android:text="Parish Office"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="26sp" />
+        <!-- Parish Office Card -->
+        <LinearLayout style="@style/Card" >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:paddingEnd="0dp"
-            android:paddingLeft="@dimen/item_padding"
-            android:paddingRight="0dp"
-            android:paddingStart="@dimen/item_padding"
-            android:text="307 Willow Avenue, S San Francisco, CA 94080"
-            android:textColor="@android:color/tertiary_text_light"
-            android:textSize="16sp" />
+            <TextView style="@style/CardContent.Header"
+                android:text="Parish Office" />
+
+            <TextView style="@style/CardContent.Secondary.Subtitle"
+                android:text="307 Willow Ave, S San Francisco, CA 94080" />
 
 
-        <TextView
-            android:id="@+id/card_parish_currently_open"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingEnd="0dp"
-            android:paddingLeft="@dimen/item_padding"
-            android:paddingRight="0dp"
-            android:paddingStart="@dimen/item_padding"
-            android:paddingTop="@dimen/item_padding"
-            android:text="Currently open"
-            android:textColor="@android:color/holo_green_light"
-            android:textSize="16sp" />
+            <TextView style="@style/CardContent"
+                android:id="@+id/card_parish_currently_open"
+                android:paddingTop="@dimen/item_padding"
+                android:text="@string/currently_open"
+                android:textColor="@color/holo_green_light" />
 
-        <TextView
-            android:id="@+id/card_parish_office_hours"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:paddingEnd="0dp"
-            android:paddingLeft="@dimen/item_padding"
-            android:paddingRight="0dp"
-            android:paddingStart="@dimen/item_padding"
-            android:text="Hours: 9:00-12:00, 1:00-5:00 (M-F)"
-            android:textColor="@android:color/tertiary_text_light"
-            android:textSize="16sp" />
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="16dp"
+                android:text="Hours: 9:00-12:00, 1:00-5:00 (M-F)" />
 
-        <include
-            layout="@layout/item_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            <!-- Buttons -->
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
 
-        <Button
-            style="?android:borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:padding="@dimen/item_padding"
-            android:text="Get directions"
-            android:textColor="@android:color/holo_blue_dark" />
+            <Button style="@style/CardButton"
+                android:text="@string/get_directions" />
 
-        <include
-            layout="@layout/item_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
 
-        <Button
-            style="?android:borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:padding="@dimen/item_padding"
-            android:text="Call"
-            android:textColor="@android:color/holo_blue_dark" />
+            <Button style="@style/CardButton"
+                android:text="@string/call" />
 
-        <include
-            layout="@layout/item_divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp" />
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
 
-        <Button
-            style="?android:borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="start"
-            android:padding="@dimen/item_padding"
-            android:text="Email"
-            android:textColor="@android:color/holo_blue_dark" />
+            <Button style="@style/CardButton"
+                android:text="@string/email" />
+        </LinearLayout>
+
+        <!-- CCF Card -->
+        <LinearLayout style="@style/Card">
+            <TextView style="@style/CardContent.Header"
+                android:text="Child Faith Formation" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:text="1040 Miller Ave, S San Francisco, CA 94080" />
+
+            <TextView style="@style/CardContent.Secondary.Subtitle"
+                android:text="Inside the Mater Dolorosa School" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <!-- Description -->
+            <TextView style="@style/CardContent"
+                android:padding="@dimen/item_padding"
+                android:text="@string/ccf_description" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+
+            <!-- Office Hours -->
+            <TextView style="@style/CardContent"
+                android:paddingTop="@dimen/item_padding"
+                android:text="Office Hours" />
+
+            <TextView style="@style/CardContent.Secondary.Subtitle"
+                android:text="@string/currently_closed"
+                android:textColor="@color/holo_red_dark" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="4dp"
+                android:text="9:00 a.m. - 1:30 p.m. (First &amp; Third Sundays)" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="4dp"
+                android:text="3:30 p.m. - 7:30 p.m. Mon" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="4dp"
+                android:text="3:30 p.m. - 7:30 p.m. Tues" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="4dp"
+                android:text="2:30 p.m. - 6:30 p.m. Wed" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="4dp"
+                android:text="2:30 p.m. - 6:30 p.m. Thurs" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="@dimen/item_padding"
+                android:text="Closed Fri, Sat, &amp; other Sundays" />
+
+            <!-- Buttons -->
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="@string/get_directions" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="@string/call" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="@string/email" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="Fax" />
+        </LinearLayout>
+
+
+        <!-- Clergy Card -->
+        <LinearLayout style="@style/Card">
+
+            <TextView style="@style/CardContent.Header"
+                android:text="Clergy" />
+
+            <TextView style="@style/CardContent.Secondary.Subtitle"
+                android:text="Rectory via the parish office" />
+
+            <!-- Pastor -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Rev. Fr. Rolando De la Rosa" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Pastor" />
+
+            <!-- In Residence 01 -->
+            <TextView style="@style/CardContent"
+                android:text="Rev. Msgr. John R. Pernia" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="In residence" />
+
+            <!-- In Residence 02 -->
+            <TextView style="@style/CardContent"
+                android:text="Rev. Fr. Angel Quitalig, J.C.L." />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="In residence" />
+
+            <!-- In Residence 03 -->
+            <TextView style="@style/CardContent"
+                android:text="Rev. Fr. Vito Perrone, C.O.S.J." />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Weekend Assistant" />
+
+            <!-- Deacon 01 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Rev. Mr. Alex Aragon" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Permanent Deacon" />
+
+            <!-- Deacon 02 -->
+            <TextView style="@style/CardContent"
+                android:text="Rev. Mr. Romeo Cruz" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="16dp"
+                android:text="Permanent Deacon" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="Call (via parish office)" />
+
+        </LinearLayout>
+
+        <!-- Parish Staff -->
+        <LinearLayout style="@style/Card">
+
+            <TextView style="@style/CardContent.Header"
+                android:text="Parochial Staff" />
+
+            <TextView style="@style/CardContent.Secondary.Subtitle"
+                android:text="Available via the parish office" />
+
+            <!-- Parish Manager -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Mrs. Frances Lidwell" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Parish Manager" />
+
+            <!-- Director of Religious Education -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Mrs. Rachael Smit" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Director of Religious Education" />
+
+            <!-- Religious Education Assistant -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Ms. Cepeda" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Religious Education Assistant" />
+
+            <!-- Director of RCIA -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Ms. Diana Powell" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Director of RCIA" />
+
+            <!-- Sacristan -->
+            <TextView style="@style/CardContent"
+                android:text="Mr. Francis Cianciolo" />
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="8dp"
+                android:text="Sacristan" />
+
+            <!-- Music Director -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView style="@style/CardContent"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_gravity="start"
+                    android:text="Mrs. Angelita Pasamba" />
+
+                <TextView style="@style/CardContent.Secondary"
+                    android:layout_width="wrap_content"
+                    android:gravity="end"
+                    android:text="@string/email"
+                    android:textColor="@color/holo_blue_dark"/>
+
+            </LinearLayout>
+
+            <TextView style="@style/CardContent.Secondary"
+                android:layout_marginBottom="16dp"
+                android:text="Music Director" />
+
+            <!-- Buttons -->
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="@string/call" />
+
+            <include
+                layout="@layout/item_divider"
+                style="@style/CardDivider" />
+
+            <Button style="@style/CardButton"
+                android:text="@string/email" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

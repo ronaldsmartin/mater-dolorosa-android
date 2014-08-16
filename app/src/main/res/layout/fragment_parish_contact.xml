@@ -24,8 +24,8 @@
                 android:id="@+id/card_parish_currently_open"
                 style="@style/CardContent"
                 android:paddingTop="@dimen/item_padding"
-                android:text="@string/currently_open"
-                android:textColor="@color/holo_green_light" />
+                android:text="@string/currently_closed"
+                android:textColor="@color/holo_red_dark" />
 
             <TextView style="@style/CardContent.Secondary"
                 android:layout_marginBottom="16dp"
@@ -265,6 +265,7 @@
                 android:text="@string/office_hours" />
 
             <TextView
+                android:id="@+id/card_ccf_currently_open"
                 style="@style/CardContent.Secondary.Subtitle"
                 android:text="@string/currently_closed"
                 android:textColor="@color/holo_red_dark" />

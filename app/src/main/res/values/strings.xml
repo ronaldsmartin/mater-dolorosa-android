@@ -3,6 +3,7 @@
 
     <string name="app_name">@string/church_name</string>
     <string name="church_name">Mater Dolorosa</string>
+    <string name="timezone_id">America/Los_Angeles</string>
 
     <!-- Nav Drawer -->
     <string name="title_section1">@string/church_name</string>

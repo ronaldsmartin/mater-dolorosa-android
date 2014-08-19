@@ -33,6 +33,10 @@
     <string name="staff_title_sacristan">Sacristan</string>
     <string name="staff_title_music_director">Music Director</string>
 
+    <string name="staff_email_parish_manager">Frances@mdssf.org</string>
+    <string name="staff_email_rcia_director">Diana@mdssf.org</string>
+    <string name="staff_email_music_director">Music@mdssf.org</string>
+
     <!-- Clergy Card -->
     <string name="clergy">Clergy</string>
     <string name="card_clergy_title">@string/clergy</string>
@@ -53,17 +57,22 @@
     <string name="clergy_title_deacon_02">Permanent Deacon</string>
     <string name="call_clergy">Call (via parish office)</string>
 
+    <string name="clergy_pastor_email">FatherRoland@mdssf.org</string>
+    <string name="clergy_deacon_email">DeaconAlex@comcast.net</string>
+
 
     <!-- CCF Card -->
     <string name="card_ccf_title">Child Faith Formation</string>
-    <string name="card_ccf_subtitle">Inside the Mater Dolorosa School</string>
-    <string name="card_ccf_address">1040 Miller Ave, S San Francisco, CA 94080</string>
+    <string name="card_ccf_address">1040 Miller Ave, S San Francisco, CA 94080\nInside the Mater Dolorosa School</string>
     <string name="ccf_description">The CCF program at Mater Dolorosa Church offers continuing classes to nurture the faith of children under the age of 18 and prepares them for the Sacraments of First Communion and Confirmation.</string>
 
     <string name="ccf_director_of_rel_ed">Mrs. Rachael Smit</string>
     <string name="ccf_title_director_of_rel_ed">Director of Religious Education</string>
     <string name="ccf_assistant_rel_ed">Ms. Cepeda</string>
     <string name="ccf_title_assistant_rel_ed">Religious Education Assistant</string>
+
+    <string name="ccf_director_email">Rachael@mdssf.org</string>
+    <string name="ccf_assistant_email">MsCepeda@mdssf.org</string>
 
     <string name="card_ccf_hours">
         9:00 a.m. &#8211; 1:30 p.m. (First &amp; Third Sundays)\n
@@ -74,5 +83,16 @@
         Closed Fri, Sat, &amp; other Sundays
     </string>
 
+
+    <!-- Link targets-->
+    <string name="map_url">http://maps.google.com/maps?daddr=%1$s,%2$s</string>
+    <string name="parish_office_phone">650&#8211;583&#8211;4131</string>
+    <string name="parish_office_email">Frances@mdssf.org</string>
+    <string name="parish_office_latitude">37.6618151</string>
+    <string name="parish_office_longitude">-122.433042</string>
+    <string name="ccf_office_phone">650&#8211;588&#8211;8175</string>
+    <string name="ccf_office_email">cff@mdssf.org</string>
+    <string name="ccf_office_latitude">37.662035</string>
+    <string name="ccf_office_longitude">-122.4341048</string>
 
 </resources>

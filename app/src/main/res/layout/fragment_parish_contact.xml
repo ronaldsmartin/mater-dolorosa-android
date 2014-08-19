@@ -47,11 +47,8 @@
                     android:text="@string/staff_parish_manager" />
 
                 <TextView
-                    style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark" />
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/staff_email_parish_manager" />
 
             </LinearLayout>
 
@@ -70,11 +67,8 @@
                     android:text="@string/staff_rcia_director" />
 
                 <TextView
-                    style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark" />
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/staff_email_rcia_director" />
 
             </LinearLayout>
 
@@ -102,11 +96,8 @@
                     android:text="@string/staff_music_director" />
 
                 <TextView
-                    style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark" />
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/staff_email_music_director" />
 
             </LinearLayout>
 
@@ -119,7 +110,9 @@
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_navigate_parish_office"
+                style="@style/CardButton"
                 android:text="@string/get_directions" />
 
             <include
@@ -135,7 +128,9 @@
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_email_parish_office"
+                style="@style/CardButton"
                 android:text="@string/email" />
         </LinearLayout>
 
@@ -158,11 +153,9 @@
                     style="@style/CardContent.Emailable"
                     android:text="@string/pastor_name" />
 
-                <TextView style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark"/>
+                <TextView
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/clergy_pastor_email" />
 
             </LinearLayout>
 
@@ -204,11 +197,9 @@
                     style="@style/CardContent.Emailable"
                     android:text="@string/clergy_deacon_01" />
 
-                <TextView style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark"/>
+                <TextView
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/clergy_deacon_email" />
 
             </LinearLayout>
 
@@ -228,7 +219,9 @@
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_call_parish_office2"
+                style="@style/CardButton"
                 android:text="@string/call_clergy" />
 
         </LinearLayout>
@@ -239,11 +232,8 @@
                 android:text="@string/card_ccf_title" />
 
             <TextView
-                style="@style/CardContent.Secondary"
+                style="@style/CardContent.Secondary.Subtitle"
                 android:text="@string/card_ccf_address" />
-
-            <TextView style="@style/CardContent.Secondary.Subtitle"
-                android:text="@string/card_ccf_subtitle" />
 
             <include
                 style="@style/CardDivider"
@@ -293,11 +283,9 @@
                     style="@style/CardContent.Emailable"
                     android:text="@string/ccf_director_of_rel_ed" />
 
-                <TextView style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark"/>
+                <TextView
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/ccf_director_email" />
 
             </LinearLayout>
 
@@ -315,11 +303,9 @@
                     style="@style/CardContent.Emailable"
                     android:text="@string/ccf_assistant_rel_ed" />
 
-                <TextView style="@style/CardContent.Secondary"
-                    android:layout_width="wrap_content"
-                    android:gravity="end"
-                    android:text="@string/email"
-                    android:textColor="@color/holo_blue_dark"/>
+                <TextView
+                    style="@style/CardContent.Secondary.Email"
+                    android:text="@string/ccf_assistant_email" />
 
             </LinearLayout>
 
@@ -334,6 +320,7 @@
                 layout="@layout/item_divider" />
 
             <Button
+                android:id="@+id/btn_navigate_ccf_office"
                 style="@style/CardButton"
                 android:text="@string/get_directions" />
 
@@ -341,23 +328,20 @@
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_call_ccf_office"
+                style="@style/CardButton"
                 android:text="@string/call" />
 
             <include
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_email_ccf_office"
+                style="@style/CardButton"
                 android:text="@string/email" />
 
-            <include
-                style="@style/CardDivider"
-                layout="@layout/item_divider" />
-
-            <Button
-                style="@style/CardButton"
-                android:text="@string/fax" />
         </LinearLayout>
 
     </LinearLayout>

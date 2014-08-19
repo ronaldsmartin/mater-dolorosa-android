@@ -126,7 +126,9 @@
                 style="@style/CardDivider"
                 layout="@layout/item_divider" />
 
-            <Button style="@style/CardButton"
+            <Button
+                android:id="@+id/btn_call_parish_office"
+                style="@style/CardButton"
                 android:text="@string/call" />
 
             <include

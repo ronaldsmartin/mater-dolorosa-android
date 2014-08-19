@@ -11,76 +11,95 @@ import android.widget.TextView;
 import org.mdssf.materdolorosa.R;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.TimeZone;
 
 
 /**
- * A simple {@link Fragment} subclass.
+ * A {@link Fragment} subclass that controls the layout for the Contact section.
  *
  */
 public class ParishContactFragment extends Fragment {
+
+    @SuppressWarnings("unused")
+    public static final String TAG = "ParishContactFragment";
 
     public ParishContactFragment() {
         // Required empty public constructor
     }
 
+    //region Office open check
     private static boolean isParishOfficeOpen(String timezoneId) {
-        Calendar currentTime = Calendar.getInstance();
+        Date currentTime = Calendar.getInstance().getTime();
 
         // Return false if it's the weekend
-        int dayOfWeek = currentTime.get(Calendar.DAY_OF_WEEK);
+        int dayOfWeek = Calendar.getInstance().get(Calendar.DAY_OF_WEEK);
         if (dayOfWeek == Calendar.SUNDAY || dayOfWeek == Calendar.SATURDAY) return false;
 
         // Reusable calendar is used to compare the current time to opening/closing times
         Calendar timeMarker = Calendar.getInstance(TimeZone.getTimeZone(timezoneId));
+        timeMarker.set(Calendar.MINUTE, 0);
+        timeMarker.set(Calendar.SECOND, 0);
 
         // Return false if it's before 9 a.m.
         timeMarker.set(Calendar.HOUR_OF_DAY, 9);
-        if (currentTime.before(timeMarker)) return false;
+        if (currentTime.before(timeMarker.getTime())) return false;
 
         // Return false if it's after 5 p.m.
         timeMarker.set(Calendar.HOUR_OF_DAY, 17);
-        if (currentTime.after(timeMarker)) return false;
+        if (currentTime.after(timeMarker.getTime())) return false;
 
         // Return false if it's lunch time (between 12:00 and 13:00)
         timeMarker.set(Calendar.HOUR_OF_DAY, 12);
-        boolean lunchHasStarted = currentTime.after(timeMarker);
+        boolean lunchHasStarted = currentTime.after(timeMarker.getTime());
 
         timeMarker.set(Calendar.HOUR_OF_DAY, 13);
-        return lunchHasStarted && currentTime.before(timeMarker);
+        lunchHasStarted &= currentTime.before(timeMarker.getTime());
+        return !lunchHasStarted;
     }
 
     private static boolean isCcfOfficeOpen(String timezoneId) {
-        Calendar currentTime = Calendar.getInstance();
+        Date currentTime = Calendar.getInstance().getTime();
         boolean isOpen;
 
         // Reusable calendar is used to compare the current time to opening/closing times
         Calendar timeMarker = Calendar.getInstance(TimeZone.getTimeZone(timezoneId));
-        switch (currentTime.get(Calendar.DAY_OF_WEEK)) {
+        timeMarker.set(Calendar.MINUTE, 0);
+        timeMarker.set(Calendar.SECOND, 0);
+        switch (timeMarker.get(Calendar.DAY_OF_WEEK)) {
             case Calendar.SUNDAY:
                 // Open on the first and third Sundays of the month.
-                int dateInMonth = currentTime.get(Calendar.DAY_OF_MONTH);
+                int dateInMonth = timeMarker.get(Calendar.DAY_OF_MONTH);
                 isOpen = dateInMonth < 8 || (15 <= dateInMonth && dateInMonth <= 21);
+
+                // Open from 9 a.m. - 1:30 p.m.
+                timeMarker.set(Calendar.HOUR_OF_DAY, 9);
+                isOpen &= currentTime.after(timeMarker.getTime());
+
+                timeMarker.set(Calendar.HOUR_OF_DAY, 13);
+                timeMarker.set(Calendar.MINUTE, 30);
+                isOpen &= currentTime.before(timeMarker.getTime());
                 break;
             case Calendar.MONDAY:
             case Calendar.TUESDAY:
-                timeMarker.set(Calendar.HOUR, 15);
+                // Open Mon, Tues from 3:30 - 7:30 p.m.
+                timeMarker.set(Calendar.HOUR_OF_DAY, 15);
                 timeMarker.set(Calendar.MINUTE, 30);
-                isOpen = currentTime.after(timeMarker);
+                isOpen = currentTime.after(timeMarker.getTime());
 
-                timeMarker.set(Calendar.HOUR, 19);
-                timeMarker.set(Calendar.MINUTE, 30);
-                isOpen &= currentTime.before(timeMarker);
+                timeMarker.set(Calendar.HOUR_OF_DAY, 19);
+                isOpen &= currentTime.before(timeMarker.getTime());
                 break;
             case Calendar.WEDNESDAY:
             case Calendar.THURSDAY:
-                timeMarker.set(Calendar.HOUR, 14);
+                // Open Wed, Thurs from 2:30 - 6:30 p.m.
+                timeMarker.set(Calendar.HOUR_OF_DAY, 14);
                 timeMarker.set(Calendar.MINUTE, 30);
-                isOpen = currentTime.after(timeMarker);
+                isOpen = currentTime.after(timeMarker.getTime());
 
-                timeMarker.set(Calendar.HOUR, 18);
+                timeMarker.set(Calendar.HOUR_OF_DAY, 18);
                 timeMarker.set(Calendar.MINUTE, 30);
-                isOpen &= currentTime.before(timeMarker);
+                isOpen &= currentTime.before(timeMarker.getTime());
                 break;
             default:
                 // Closed on Fridays and Saturdays.
@@ -94,6 +113,7 @@ public class ParishContactFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+    //endregion
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,7 +135,6 @@ public class ParishContactFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
     }
-    //endregion
 
     /**
      * Set the TextView with {@code textViewId} in {@code rootView} to display the text
@@ -130,4 +149,5 @@ public class ParishContactFragment extends Fragment {
         officeStatus.setText(R.string.currently_open);
         officeStatus.setTextColor(getResources().getColor(R.color.holo_green_light));
     }
+    //endregion
 }
